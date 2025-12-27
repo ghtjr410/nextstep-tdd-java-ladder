@@ -10,11 +10,6 @@ public class Users {
             Arrays.asList(new User("crong", 35), new User("pobi", 30), new User("jk", 40), new User("honux", 45));
 
     User getUser(String name) {
-        for (User user : users) {
-            if (user.matchName(name)) {
-                return user;
-            }
-        }
-        return DEFAULT_USER;
+        return users.stream().filter(user -> user.matchName(name)).findFirst().orElse(DEFAULT_USER);
     }
 }
