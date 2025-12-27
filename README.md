@@ -1,5 +1,5 @@
 # NextStep TDD Java Ladder
-본 저장소는 TDD 학습을 위한 단계별 과제를 포합합니다.
+본 저장소는 TDD 학습을 위한 단계별 과제를 포함합니다.
 ## 단계별 문서
 - **[1단계 - 스트림, 람다, Optional](./docs/01-stream-lambda-optional.md)**
 - **[2단계 - 사다리(생성)]()**

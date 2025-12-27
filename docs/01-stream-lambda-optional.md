@@ -2,7 +2,7 @@
 ***
 ## 코드 리뷰
 > PR 링크:
->
+> **[https://github.com/next-step/java-ladder/pull/2430](https://github.com/next-step/java-ladder/pull/2430)**
 
 ## 나의 학습 목표
 - 람다 문법 학습
