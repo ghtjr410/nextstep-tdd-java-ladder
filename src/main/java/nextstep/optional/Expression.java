@@ -1,7 +1,10 @@
 package nextstep.optional;
 
 enum Expression {
-    PLUS("+"), MINUS("-"), TIMES("*"), DIVIDE("/");
+    PLUS("+"),
+    MINUS("-"),
+    TIMES("*"),
+    DIVIDE("/");
 
     private String expression;
 
