@@ -83,7 +83,7 @@ public class CarTest {
 }
 ```
 
-- [ ] 익명 클래스를 람다로 전환
+- [x] 익명 클래스를 람다로 전환
 
 ---
 
@@ -118,7 +118,7 @@ public int sumAllEven(List numbers) {
 List에 담긴 값 중 3보다 큰 수만을 더해야 한다.
 이 기능을 구현하려고 보니 앞의 요구사항 1,2와 많은 중복이 발생한다. 람다를 활용해 중복을 제거한다.
 
-- [ ] sumAll, sumAllEven, sumAllOverThree 중복 제거
+- [x] sumAll, sumAllEven, sumAllOverThree 중복 제거
 
 ### 힌트
 - 변경되는 부분과 변경되지 않는 부분의 코드를 분리한다.
@@ -167,7 +167,7 @@ List words = Arrays.asList(contents.split("[\\P{L}]+"));
 long count = words.stream().filter(w -> w.length() > 12).count();
 ```
 
-- [ ] countWords를 Stream으로 변환
+- [x] countWords를 Stream으로 변환
 
 ### map
 List에 담긴 모든 숫자 값을 2배한 결과 List를 생성한다.
@@ -195,7 +195,7 @@ public int sumAll(List numbers) {
 
 List에 담긴 모든 숫자 중 3보다 큰 숫자를 2배 한 후 모든 값의 합을 구한다.
 
-- [ ] sumOverThreeAndDouble 구현 (StreamStudyTest 통과)
+- [x] sumOverThreeAndDouble 구현 (StreamStudyTest 통과)
 
 ---
 
@@ -203,10 +203,10 @@ List에 담긴 모든 숫자 중 3보다 큰 숫자를 2배 한 후 모든 값�
 
 nextstep.fp.StreamStudy 클래스의 printLongestWordTop100() 메서드를 구현한다.
 
-- [ ] 단어의 길이가 12자를 초과하는 단어를 추출한다.
-- [ ] 12자가 넘는 단어 중 길이가 긴 순서로 100개의 단어를 추출한다.
-- [ ] 단어 중복을 허용하지 않는다. (서로 다른 단어 100개)
-- [ ] 추출한 100개의 단어를 출력한다. 모든 단어는 소문자로 출력해야 한다.
+- [x] 단어의 길이가 12자를 초과하는 단어를 추출한다.
+- [x] 12자가 넘는 단어 중 길이가 긴 순서로 100개의 단어를 추출한다.
+- [x] 단어 중복을 허용하지 않는다. (서로 다른 단어 100개)
+- [x] 추출한 100개의 단어를 출력한다. 모든 단어는 소문자로 출력해야 한다.
 
 ### 힌트
 - `sorted()` - 길이가 긴 순서로 정렬
@@ -224,7 +224,7 @@ nextstep.optional.User의 ageIsInRange1() 메소드는 30살 이상, 45살 이�
 
 같은 기능을 Optional을 활용해 ageIsInRange2() 메소드에 구현한다.
 
-- [ ] ageIsInRange2 구현 (UserTest 통과)
+- [x] ageIsInRange2 구현 (UserTest 통과)
 
 ### 힌트
 - `Optional.ofNullable(user)` 활용
@@ -237,7 +237,7 @@ nextstep.optional.User의 ageIsInRange1() 메소드는 30살 이상, 45살 이�
 
 nextstep.optional.Users의 getUser() 메소드를 자바 8의 stream과 Optional을 활용해 구현한다.
 
-- [ ] getUser 구현 (UsersTest 통과)
+- [x] getUser 구현 (UsersTest 통과)
 
 ### 힌트
 - Optional의 `orElse()` 메소드 활용
@@ -248,10 +248,24 @@ nextstep.optional.Users의 getUser() 메소드를 자바 8의 stream과 Optional
 
 nextstep.optional.ExpressionTest의 테스트가 통과하도록 Expression의 of 메소드를 구현한다.
 
-- [ ] Expression.of 구현 (ExpressionTest 통과)
+- [x] Expression.of 구현 (ExpressionTest 통과)
 
 ### 힌트
 - 자바의 enum 전체 값은 `values()` 메소드를 통해 배열로 접근 가능
 - `Arrays.stream()`을 이용해 배열을 stream으로 생성
 - `findFirst()` 메소드로 일치하는 값 하나 추출
 - Optional의 `orElseThrow()` 메소드 활용
+
+### 추가 미션 - Optional 체이닝으로 리팩터링
+
+(사실은 깨진 테스트를 그냥 지나치지 못하는... 직업병이 있어서 미션을 추측해서 추가해봤습니다.)
+
+`ComputerStore.getVersionOptional()` 메서드를 구현한다.
+
+- [x] 중첩 if문을 Optional 체이닝으로 리팩터링
+- [x] ComputerStoreTest 모든 테스트 통과
+
+### 힌트
+- `Optional.ofNullable()`로 시작
+- `map()`을 체이닝하여 중첩 객체 접근
+- `orElse()`로 기본값 반환
