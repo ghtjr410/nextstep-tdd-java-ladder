@@ -13,4 +13,10 @@ class LinesTest {
     void 생성자_Height만큼_Line생성() {
         assertThat(new Lines(3, 3, count -> new Line(true, false)).values()).hasSize(3);
     }
+
+    @Test
+    void toDisplay() {
+        assertThat(new Lines(2, 3, count -> new Line(true, false)).toDisplay())
+                .isEqualTo("|-----|     |\n|-----|     |");
+    }
 }

@@ -1,6 +1,7 @@
 package nextstep.ladder.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public record Lines(List<Line> values) {
@@ -21,5 +22,9 @@ public record Lines(List<Line> values) {
 
     public Lines(List<Line> values) {
         this.values = List.copyOf(values);
+    }
+
+    public String toDisplay() {
+        return values.stream().map(Line::toDisplay).collect(Collectors.joining("\n"));
     }
 }
