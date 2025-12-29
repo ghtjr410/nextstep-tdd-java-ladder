@@ -12,6 +12,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class NameTest {
 
+    @ParameterizedTest(name = "올바른 값:{0}")
+    @ValueSource(strings = {"일", "일이삼사오"})
+    void 생성자_정상입력_생성성공(String input) {
+        assertThatCode(() -> new Name(input)).doesNotThrowAnyException();
+    }
+
     @ParameterizedTest(name = "빈값:{0}")
     @NullAndEmptySource
     @ValueSource(strings = " ")
