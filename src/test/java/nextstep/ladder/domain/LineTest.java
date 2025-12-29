@@ -31,4 +31,9 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("가로선은 연속될 수 없습니다.");
     }
+
+    @Test
+    void toDisplay() {
+        assertThat(new Line(true, false, true).toDisplay()).isEqualTo("|-----|     |-----|");
+    }
 }
