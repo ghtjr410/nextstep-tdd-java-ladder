@@ -6,6 +6,8 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class LineTest {
@@ -13,6 +15,14 @@ class LineTest {
     @Test
     void 생성자_정상입력_생성성공() {
         assertThat(new Line(true, false, true).points()).containsExactly(true, false, true);
+    }
+
+    @ParameterizedTest(name = "빈값:{0}")
+    @NullAndEmptySource
+    void 생성자_빈값_예외발생(List<Boolean> inputs) {
+        assertThatThrownBy(() -> new Line(inputs))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("가로선 정보는 필수입니다.");
     }
 
     @Test
