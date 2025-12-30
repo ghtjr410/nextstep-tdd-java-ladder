@@ -2,6 +2,7 @@ package nextstep.ladder.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record Names(List<Name> values) {
     private static final int MIN_SIZE = 2;
@@ -24,5 +25,9 @@ public record Names(List<Name> values) {
         if (values.size() < MIN_SIZE) {
             throw new IllegalArgumentException("참가자는 %d명 이상이어야 합니다. 입력 인원: %d".formatted(MIN_SIZE, values.size()));
         }
+    }
+
+    public String toDisplay() {
+        return values.stream().map(Name::toDisplay).collect(Collectors.joining());
     }
 }

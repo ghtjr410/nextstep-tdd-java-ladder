@@ -28,4 +28,9 @@ class NamesTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("참가자는 2명 이상");
     }
+
+    @Test
+    void toDisplay() {
+        assertThat(new Names("맛있는사과,바나나,키위").toDisplay()).isEqualTo("맛있는사과 바나나   키위    ");
+    }
 }

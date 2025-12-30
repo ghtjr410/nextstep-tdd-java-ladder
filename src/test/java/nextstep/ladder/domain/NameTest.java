@@ -33,4 +33,9 @@ class NameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자 이하여야 합니다.");
     }
+
+    @Test
+    void toDisplay_6자고정_오른쪽공백채움() {
+        assertThat(new Name("사과").toDisplay()).isEqualTo("사과    ");
+    }
 }
