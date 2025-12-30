@@ -2,7 +2,7 @@
 ***
 ## 코드 리뷰
 > PR 링크:
->
+> **[https://github.com/next-step/java-ladder/pull/2431](https://github.com/next-step/java-ladder/pull/2431)**
 
 ## 기능 요구사항
 - 사다리 게임에 참여하는 사람에 이름을 최대5글자까지 부여할 수 있다. 사다리를 출력할 때 사람 이름도 같이 출력한다.
