@@ -17,6 +17,6 @@ class LinesTest {
     @Test
     void toDisplay() {
         assertThat(new Lines(2, 3, count -> new Line(true, false)).toDisplay())
-                .isEqualTo("|-----|     |\n|-----|     |");
+                .isEqualTo("     |-----|     |\n     |-----|     |");
     }
 }

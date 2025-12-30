@@ -34,6 +34,6 @@ class LineTest {
 
     @Test
     void toDisplay() {
-        assertThat(new Line(true, false, true).toDisplay()).isEqualTo("|-----|     |-----|");
+        assertThat(new Line(true, false, true).toDisplay()).isEqualTo("     |-----|     |-----|");
     }
 }

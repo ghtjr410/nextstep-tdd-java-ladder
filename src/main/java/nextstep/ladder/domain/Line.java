@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public record Line(List<Boolean> points) {
-    private static final String CONNECTED = "-----";
-    private static final String EMPTY = "     ";
+    private static final String CONNECTED = "-----|";
+    private static final String EMPTY = "     |";
 
     public Line(Boolean... inputs) {
         this(List.of(inputs));
@@ -31,8 +31,8 @@ public record Line(List<Boolean> points) {
     }
 
     public String toDisplay() {
-        String body = points.stream().map(this::toSegment).collect(Collectors.joining("|"));
-        return "|" + body + "|";
+        String body = points.stream().map(this::toSegment).collect(Collectors.joining());
+        return "     |" + body;
     }
 
     private String toSegment(boolean connected) {
