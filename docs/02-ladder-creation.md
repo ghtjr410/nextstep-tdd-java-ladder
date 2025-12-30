@@ -54,3 +54,54 @@ public class Line {
 **[체크리스트 확인하기](checklist.md)**
 
 ## 구현 기능 목록
+
+### 참가자 이름
+- [x] 이름 (Name)
+    - [x] 문자열로 생성
+    - [x] null 또는 빈 값일 시 예외 발생
+    - [x] 5자 초과 시 예외 발생
+    - [x] 6자 고정 출력용 문자열 반환
+
+- [x] 이름 목록 (Names)
+    - [x] 쉼표 구분 문자열로 생성
+    - [x] 이름 목록으로 생성
+    - [x] null일 시 예외 발생
+    - [x] 2명 미만일 시 예외 발생
+    - [x] 참가자 수 반환
+    - [x] 출력용 문자열 반환
+
+### 사다리 높이
+- [x] 높이 (Height)
+    - [x] 정수로 생성
+    - [x] 1 미만일 시 예외 발생
+
+### 사다리 라인
+- [x] 라인 (Line)
+    - [x] Boolean 목록으로 생성
+    - [x] 가변인자로 생성
+    - [x] null 또는 빈 값일 시 예외 발생
+    - [x] 연속된 true 존재 시 예외 발생
+    - [x] 출력용 문자열 반환
+
+- [x] 라인 목록 (Lines)
+    - [x] Line 목록으로 생성
+    - [x] Height, 참가자 수, LineGenerator로 생성
+    - [x] 출력용 문자열 반환
+
+### 사다리 생성
+- [x] 라인 생성기 인터페이스 (LineGenerator)
+    - [x] Line 생성 메서드 정의
+
+- [x] Boolean 생성기 인터페이스 (BooleanGenerator)
+    - [x] boolean 생성 메서드 정의
+
+- [x] 랜덤 라인 생성기 (RandomLineGenerator)
+    - [x] LineGenerator 구현
+    - [x] BooleanGenerator 주입 가능
+    - [x] 기본 생성 시 Random 사용
+    - [x] 연속 true 방지 로직 적용
+
+### 사다리
+- [x] 사다리 (Ladder)
+    - [x] Names, Lines로 생성
+    - [x] 출력용 문자열 반환
