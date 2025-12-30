@@ -27,6 +27,10 @@ public record Names(List<Name> values) {
         }
     }
 
+    public int size() {
+        return values.size();
+    }
+
     public String toDisplay() {
         return values.stream().map(Name::toDisplay).collect(Collectors.joining());
     }
