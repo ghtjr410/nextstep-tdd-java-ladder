@@ -8,7 +8,7 @@ public record Name(String value) {
             throw new IllegalArgumentException("이름은 필수입니다. 입력값: " + value);
         }
 
-        if (value.length() > 5) {
+        if (value.length() > MAX_LENGTH) {
             throw new IllegalArgumentException("이름은 %d자 이하여야 합니다. 입력값: %s".formatted(MAX_LENGTH, value));
         }
     }
