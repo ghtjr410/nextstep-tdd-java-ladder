@@ -22,12 +22,27 @@ public record Line(List<Boolean> points) {
             throw new IllegalArgumentException("가로선 정보는 필수입니다.");
         }
 
-        boolean hasConsecutive =
-                IntStream.range(0, inputs.size() - 1).anyMatch(i -> inputs.get(i) && inputs.get(i + 1));
-
-        if (hasConsecutive) {
+        if (hasConsecutive(inputs)) {
             throw new IllegalArgumentException("가로선은 연속될 수 없습니다.");
         }
+    }
+
+    private static boolean hasConsecutive(List<Boolean> inputs) {
+        return IntStream.range(0, inputs.size() - 1).anyMatch(i -> inputs.get(i) && inputs.get(i + 1));
+    }
+
+    public int move(int position) {
+        if (hasLeft(position)) return position - 1;
+        if (hasRight(position)) return position + 1;
+        return position;
+    }
+
+    private boolean hasRight(int position) {
+        return position < points.size() && points.get(position);
+    }
+
+    private boolean hasLeft(int position) {
+        return position > 0 && points.get(position - 1);
     }
 
     public String toDisplay() {
