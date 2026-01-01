@@ -27,6 +27,10 @@ public record Names(List<Name> values) {
         }
     }
 
+    public Name get(int index) {
+        return values.get(index);
+    }
+
     public int size() {
         return values.size();
     }

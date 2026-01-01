@@ -1,5 +1,9 @@
 package nextstep.ladder.domain;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public record LadderGame(Ladder ladder, Prizes prizes) {
 
     public LadderGame {
@@ -7,5 +11,17 @@ public record LadderGame(Ladder ladder, Prizes prizes) {
             throw new IllegalArgumentException(
                     "참가자 수와 상품 수가 일치해야 합니다. 참가자: %d명, 상품: %d개".formatted(ladder.participantCount(), prizes.size()));
         }
+    }
+
+    public LadderResult play() {
+        Map<Name, Prize> result = IntStream.range(0, ladder.participantCount())
+                .boxed()
+                .collect(Collectors.toMap(ladder::getName, this::getPrize));
+
+        return new LadderResult(result);
+    }
+
+    private Prize getPrize(int index) {
+        return this.prizes.get(ladder.traverse(index));
     }
 }
