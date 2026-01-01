@@ -16,4 +16,8 @@ public record Prizes(List<Prize> values) {
 
         this.values = List.copyOf(values);
     }
+
+    public int size() {
+        return values.size();
+    }
 }
