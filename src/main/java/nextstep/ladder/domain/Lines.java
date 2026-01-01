@@ -20,8 +20,22 @@ public record Lines(List<Line> values) {
                 .toList();
     }
 
+    public Lines(Line... inputs) {
+        this(List.of(inputs));
+    }
+
     public Lines(List<Line> values) {
         this.values = List.copyOf(values);
+    }
+
+    public int traverse(int position) {
+        int current = position;
+
+        for (Line line : values) {
+            current = line.move(current);
+        }
+
+        return current;
     }
 
     public String toDisplay() {
