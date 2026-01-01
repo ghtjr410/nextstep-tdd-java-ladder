@@ -8,6 +8,7 @@ public class Application {
     public static void main(String[] args) {
         Names names = new Names(InputView.readNames());
         Height height = new Height(InputView.readHeight());
+        Prizes prizes = new Prizes(InputView.readPrize());
 
         Lines lines = new Lines(height, names.size(), new RandomLineGenerator());
         Ladder ladder = new Ladder(names, lines);
