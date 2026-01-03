@@ -18,4 +18,17 @@ class LadderResultTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("존재하지 않는 참가자입니다");
     }
+
+    @Test
+    void toDisplay_전체결과출력() {
+        LadderResult result = new LadderResult(Map.of(
+                new Name("사과"), new Prize("꽝"),
+                new Name("바나나"), new Prize("1000")
+        ));
+
+        assertThat(result.toDisplay()).contains(
+                "사과 : 꽝",
+                "바나나 : 1000"
+        );
+    }
 }
