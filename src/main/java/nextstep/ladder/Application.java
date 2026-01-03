@@ -7,12 +7,24 @@ import nextstep.ladder.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         Names names = new Names(InputView.readNames());
-        Height height = new Height(InputView.readHeight());
         Prizes prizes = new Prizes(InputView.readPrize());
+        Height height = new Height(InputView.readHeight());
 
         Lines lines = new Lines(height, names.size(), new RandomLineGenerator());
         Ladder ladder = new Ladder(names, lines);
 
-        OutputView.printResult(ladder);
+        OutputView.printResult(ladder, prizes);
+
+        LadderGame game = new LadderGame(ladder, prizes);
+        LadderResult result = game.play();
+
+        while (true) {
+            String input = InputView.readTarget();
+            if ("all".equals(input)) {
+                OutputView.printAll(result);
+                break;
+            }
+            OutputView.printOne(result.prizeOf(new Name(input)));
+        }
     }
 }
