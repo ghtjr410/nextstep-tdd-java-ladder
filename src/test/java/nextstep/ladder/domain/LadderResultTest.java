@@ -23,12 +23,8 @@ class LadderResultTest {
     void toDisplay_전체결과출력() {
         LadderResult result = new LadderResult(Map.of(
                 new Name("사과"), new Prize("꽝"),
-                new Name("바나나"), new Prize("1000")
-        ));
+                new Name("바나나"), new Prize("1000")));
 
-        assertThat(result.toDisplay()).contains(
-                "사과 : 꽝",
-                "바나나 : 1000"
-        );
+        assertThat(result.toDisplay()).isEqualTo("사과 : 꽝\n바나나 : 1000");
     }
 }

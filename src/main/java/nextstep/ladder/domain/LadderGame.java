@@ -1,5 +1,6 @@
 package nextstep.ladder.domain;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -16,7 +17,7 @@ public record LadderGame(Ladder ladder, Prizes prizes) {
     public LadderResult play() {
         Map<Name, Prize> result = IntStream.range(0, ladder.participantCount())
                 .boxed()
-                .collect(Collectors.toMap(ladder::getName, this::getPrize));
+                .collect(Collectors.toMap(ladder::getName, this::getPrize, (a, b) -> a, LinkedHashMap::new));
 
         return new LadderResult(result);
     }
