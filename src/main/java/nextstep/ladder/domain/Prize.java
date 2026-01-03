@@ -6,4 +6,8 @@ public record Prize(String name) {
             throw new IllegalArgumentException("상품은 필수입니다. 입력값: " + name);
         }
     }
+
+    public String toDisplay() {
+        return String.format("%-6s", name);
+    }
 }
