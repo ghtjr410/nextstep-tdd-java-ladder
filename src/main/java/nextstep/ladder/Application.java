@@ -5,6 +5,8 @@ import nextstep.ladder.view.InputView;
 import nextstep.ladder.view.OutputView;
 
 public class Application {
+    private static final String ALL_COMMAND = "all";
+
     public static void main(String[] args) {
         Names names = new Names(InputView.readNames());
         Prizes prizes = new Prizes(InputView.readPrize());
@@ -20,7 +22,7 @@ public class Application {
 
         while (true) {
             String input = InputView.readTarget();
-            if ("all".equals(input)) {
+            if (ALL_COMMAND.equals(input)) {
                 OutputView.printAll(result);
                 break;
             }

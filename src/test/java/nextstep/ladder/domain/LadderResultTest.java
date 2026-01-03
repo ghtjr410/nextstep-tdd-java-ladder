@@ -2,6 +2,7 @@ package nextstep.ladder.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -21,9 +22,12 @@ class LadderResultTest {
 
     @Test
     void toDisplay_전체결과출력() {
-        LadderResult result = new LadderResult(Map.of(
-                new Name("사과"), new Prize("꽝"),
-                new Name("바나나"), new Prize("1000")));
+        LadderResult result = new LadderResult(new LinkedHashMap<>() {
+            {
+                put(new Name("사과"), new Prize("꽝"));
+                put(new Name("바나나"), new Prize("1000"));
+            }
+        });
 
         assertThat(result.toDisplay()).isEqualTo("사과 : 꽝\n바나나 : 1000");
     }
