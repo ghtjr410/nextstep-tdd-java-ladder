@@ -24,4 +24,9 @@ class PrizesTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("상품 목록은 필수입니다.");
     }
+
+    @Test
+    void toDisplay() {
+        assertThat(new Prizes("꽝,1000,꽝,2000").toDisplay()).isEqualTo("꽝     1000  꽝     2000  ");
+    }
 }

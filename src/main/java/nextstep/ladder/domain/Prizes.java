@@ -2,6 +2,7 @@ package nextstep.ladder.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record Prizes(List<Prize> values) {
 
@@ -23,5 +24,9 @@ public record Prizes(List<Prize> values) {
 
     public int size() {
         return values.size();
+    }
+
+    public String toDisplay() {
+        return values.stream().map(Prize::toDisplay).collect(Collectors.joining());
     }
 }
