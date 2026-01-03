@@ -2,7 +2,7 @@
 ***
 ## 코드 리뷰
 > PR 링크:
-> **[]()**
+> **[https://github.com/next-step/java-ladder/pull/2433](https://github.com/next-step/java-ladder/pull/2433)**
 
 ## 기능 요구사항
 - 사다리 실행 결과를 출력해야 한다.
