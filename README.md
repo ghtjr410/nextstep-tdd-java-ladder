@@ -4,7 +4,7 @@
 - **[1단계 - 스트림, 람다, Optional](./docs/01-stream-lambda-optional.md)**
 - **[2단계 - 사다리(생성)](./docs/02-ladder-creation.md)**
 - **[3단계 - 사다리(게임 실행)](./docs/03-ladder-game-run.md)**
-- **[4단계 - 사다리(리팩터링)]()**
+- **[4단계 - 사다리(리팩터링)](./docs/04-ladder-refactoring.md)**
 
 ## 진행 방법
 * 사다리 게임 게임 요구사항을 파악한다.
