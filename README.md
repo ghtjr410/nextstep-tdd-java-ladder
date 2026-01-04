@@ -3,7 +3,7 @@
 ## 단계별 문서
 - **[1단계 - 스트림, 람다, Optional](./docs/01-stream-lambda-optional.md)**
 - **[2단계 - 사다리(생성)](./docs/02-ladder-creation.md)**
-- **[3단계 - 사다리(게임 실행)]()**
+- **[3단계 - 사다리(게임 실행)](./docs/03-ladder-game-run.md)**
 - **[4단계 - 사다리(리팩터링)]()**
 
 ## 진행 방법

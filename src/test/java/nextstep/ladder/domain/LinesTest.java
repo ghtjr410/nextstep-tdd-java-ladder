@@ -15,6 +15,13 @@ class LinesTest {
     }
 
     @Test
+    void traverse_최종위치반환() {
+        Lines lines = new Lines(new Line(true, false), new Line(false, true));
+
+        assertThat(lines.traverse(0)).isEqualTo(2);
+    }
+
+    @Test
     void toDisplay() {
         assertThat(new Lines(2, 3, count -> new Line(true, false)).toDisplay())
                 .isEqualTo("     |-----|     |\n     |-----|     |");
