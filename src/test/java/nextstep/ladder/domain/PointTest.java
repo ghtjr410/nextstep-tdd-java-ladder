@@ -23,4 +23,22 @@ class PointTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("양쪽으로 동시에 이동할 수 없습니다.");
     }
+
+    @Test
+    void move_왼쪽이동() {
+        Point point = new Point(true, false);
+        assertThat(point.move(1)).isEqualTo(0);
+    }
+
+    @Test
+    void move_오른쪽이동() {
+        Point point = new Point(false, true);
+        assertThat(point.move(1)).isEqualTo(2);
+    }
+
+    @Test
+    void move_이동없음() {
+        Point point = new Point(false, false);
+        assertThat(point.move(1)).isEqualTo(1);
+    }
 }
