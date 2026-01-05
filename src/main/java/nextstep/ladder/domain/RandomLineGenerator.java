@@ -25,6 +25,6 @@ public class RandomLineGenerator implements LineGenerator {
             points.add(current);
         }
 
-        return new Line(points);
+        return new Line(points.toArray(Boolean[]::new));
     }
 }

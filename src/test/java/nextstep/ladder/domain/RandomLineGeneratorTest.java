@@ -13,11 +13,12 @@ class RandomLineGeneratorTest {
 
     @Test
     void generate_연속true_방지() {
-        Iterator<Boolean> values = List.of(true, true, true).iterator();
+        Iterator<Boolean> values = List.of(true, true).iterator();
         BooleanGenerator generator = values::next;
 
-        Line line = new RandomLineGenerator(generator).generate(3);
+        Line line = new RandomLineGenerator(generator).generate(2);
 
-        assertThat(line.points()).containsExactly(true, false, true);
+        assertThat(line.points())
+                .containsExactly(new Point(false, true), new Point(true, false), new Point(false, false));
     }
 }
