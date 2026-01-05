@@ -30,15 +30,8 @@ public record Line(List<Point> points) {
     }
 
     public String toDisplay() {
-        String body = points.stream()
-                .limit(points.size() - 1)
-                .map(Point::right)
-                .map(this::toSegment)
-                .collect(Collectors.joining());
+        String body =
+                points.stream().limit(points.size() - 1).map(Point::toSegment).collect(Collectors.joining());
         return "     |" + body;
-    }
-
-    private String toSegment(boolean connected) {
-        return connected ? CONNECTED : EMPTY;
     }
 }

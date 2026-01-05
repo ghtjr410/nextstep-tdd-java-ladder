@@ -41,4 +41,16 @@ class PointTest {
         Point point = new Point(false, false);
         assertThat(point.move(1)).isEqualTo(1);
     }
+
+    @Test
+    void toSegment_연결됨() {
+        Point point = new Point(false, true);
+        assertThat(point.toSegment()).isEqualTo("-----|");
+    }
+
+    @Test
+    void toSegment_연결안됨() {
+        Point point = new Point(false, false);
+        assertThat(point.toSegment()).isEqualTo("     |");
+    }
 }
