@@ -24,7 +24,7 @@ public class Application {
             String input = InputView.readTarget();
             if (ALL_COMMAND.equals(input)) {
                 OutputView.printAll(result);
-                break;
+                return;
             }
             OutputView.printOne(result.prizeOf(new Name(input)));
         }
