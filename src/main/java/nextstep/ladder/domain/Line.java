@@ -5,13 +5,21 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public record Line(List<Point> points) {
-    private static final String CONNECTED = "-----|";
-    private static final String EMPTY = "     |";
 
     public Line(Boolean... connections) {
-        this(IntStream.rangeClosed(0, connections.length)
-                .mapToObj(i -> new Point(i > 0 && connections[i - 1], i < connections.length && connections[i]))
-                .toList());
+        this(toPoints(connections));
+    }
+
+    private static List<Point> toPoints(Boolean[] connections) {
+        return IntStream.rangeClosed(0, connections.length)
+                .mapToObj(i -> createPoint(connections, i))
+                .toList();
+    }
+
+    private static Point createPoint(Boolean[] connections, int index) {
+        boolean left = index > 0 && connections[index - 1];
+        boolean right = index < connections.length && connections[index];
+        return new Point(left, right);
     }
 
     public Line {
