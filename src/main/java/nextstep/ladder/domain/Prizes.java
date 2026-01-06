@@ -10,12 +10,12 @@ public record Prizes(List<Prize> values) {
         this(Arrays.stream(input.split(",")).map(Prize::new).toList());
     }
 
-    public Prizes(List<Prize> values) {
+    public Prizes {
         if (values == null || values.isEmpty()) {
             throw new IllegalArgumentException("상품 목록은 필수입니다.");
         }
 
-        this.values = List.copyOf(values);
+        values = List.copyOf(values);
     }
 
     public Prize get(int index) {

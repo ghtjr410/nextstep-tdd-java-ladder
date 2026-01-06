@@ -38,8 +38,11 @@ public record Line(List<Point> points) {
     }
 
     public String toDisplay() {
-        String body =
-                points.stream().limit(points.size() - 1).map(Point::toSegment).collect(Collectors.joining());
+        String body = points.stream().limit(size() - 1).map(Point::toSegment).collect(Collectors.joining());
         return "     |" + body;
+    }
+
+    private int size() {
+        return points.size();
     }
 }

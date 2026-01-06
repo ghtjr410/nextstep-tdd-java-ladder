@@ -23,6 +23,6 @@ public record LadderGame(Ladder ladder, Prizes prizes) {
     }
 
     private Prize getPrize(int index) {
-        return this.prizes.get(ladder.traverse(index));
+        return prizes.get(ladder.traverse(index));
     }
 }
