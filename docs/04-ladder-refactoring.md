@@ -53,3 +53,28 @@ jk : 5000
 **[체크리스트 확인하기](checklist.md)**
 
 ## 리팩터링 목록
+
+### 1. Point 클래스 추출 (핵심)
+- `Line`의 이동 책임을 `Point`로 분리
+- `List<Boolean>` → `List<Point>`로 구조 변경
+- 연속 가로선 검증이 `Point` 생성자의 `(left && right)` 검증으로 대체
+
+### 2. Tell, Don't Ask 적용
+- `Point::right` getter 사용 → `Point::toSegment()` 책임 위임
+- 상태를 꺼내서 판단하지 않고 객체에게 행위 요청
+
+### 3. Line 부생성자 가독성 개선
+- 복잡한 변환 로직을 `toPoints()`, `createPoint()` 헬퍼 메서드로 분리
+- 부생성자는 테스트 편의성 유지
+
+### 4. Compact Constructor 적용
+- `Names`, `Prizes` 생성자를 compact constructor로 변경
+- 불필요한 `this.values = ` 제거
+
+### 5. Application 들여쓰기 규칙 준수
+- `printResults()` 메서드 추출
+- 2단계 들여쓰기 → 1단계로 개선
+
+### 6. 코드 일관성 정리
+- `this.` 사용 통일 (생략으로)
+- 테스트도 책임 이동에 맞춰 `LineTest` → `PointTest`로 이동
