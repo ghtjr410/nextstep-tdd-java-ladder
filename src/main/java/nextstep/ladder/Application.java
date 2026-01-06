@@ -20,13 +20,14 @@ public class Application {
         LadderGame game = new LadderGame(ladder, prizes);
         LadderResult result = game.play();
 
-        while (true) {
-            String input = InputView.readTarget();
-            if (ALL_COMMAND.equals(input)) {
-                OutputView.printAll(result);
-                return;
-            }
+        printResults(result);
+    }
+
+    private static void printResults(LadderResult result) {
+        String input;
+        while (!ALL_COMMAND.equals(input = InputView.readTarget())) {
             OutputView.printOne(result.prizeOf(new Name(input)));
         }
+        OutputView.printAll(result);
     }
 }
