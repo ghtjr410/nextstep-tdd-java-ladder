@@ -2,7 +2,7 @@
 ***
 ## 코드리뷰
 > PR 링크:
-> **[]()**
+> **[https://github.com/next-step/java-ladder/pull/2436](https://github.com/next-step/java-ladder/pull/2436)**
 
 ## 기능 요구사항
 - 기능 요구사항 3단계와 같다.
