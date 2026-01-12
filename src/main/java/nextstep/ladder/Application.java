@@ -10,15 +10,14 @@ public class Application {
     public static void main(String[] args) {
         Names names = new Names(InputView.readNames());
         Prizes prizes = new Prizes(InputView.readPrize());
-        Height height = new Height(InputView.readHeight());
 
-        Lines lines = new Lines(height, names.size(), new RandomLineGenerator());
+        Lines lines = new Lines(InputView.readHeight(), names.size(), new RandomLineGenerator());
         Ladder ladder = new Ladder(names, lines);
 
         OutputView.printResult(ladder, prizes);
 
-        LadderGame game = new LadderGame(ladder, prizes);
-        LadderResult result = game.play();
+        MatchingResult matchingResult = ladder.play();
+        LadderResult result = matchingResult.map(names, prizes);
 
         printResults(result);
     }
