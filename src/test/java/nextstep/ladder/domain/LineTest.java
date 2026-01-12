@@ -15,7 +15,7 @@ class LineTest {
     @Test
     void 생성자_정상입력_생성성공() {
         assertThat(new Line(true, false).points())
-                .containsExactly(new Point(false, true), new Point(true, false), new Point(false, false));
+                .containsExactly(new Point(0, false, true), new Point(1, true, false), new Point(2, false, false));
     }
 
     @ParameterizedTest(name = "빈값:{0}")

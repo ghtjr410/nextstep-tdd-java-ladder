@@ -1,6 +1,6 @@
 package nextstep.ladder.domain;
 
-public record Point(boolean left, boolean right) {
+public record Point(int index, boolean left, boolean right) {
     private static final String CONNECTED = "-----|";
     private static final String EMPTY = "     |";
 
@@ -10,10 +10,10 @@ public record Point(boolean left, boolean right) {
         }
     }
 
-    public int move(int position) {
-        if (left) return position - 1;
-        if (right) return position + 1;
-        return position;
+    public int move() {
+        if (left) return index - 1;
+        if (right) return index + 1;
+        return index;
     }
 
     public String toSegment() {

@@ -19,7 +19,7 @@ public record Line(List<Point> points) {
     private static Point createPoint(Boolean[] connections, int index) {
         boolean left = index > 0 && connections[index - 1];
         boolean right = index < connections.length && connections[index];
-        return new Point(left, right);
+        return new Point(index, left, right);
     }
 
     public Line {
@@ -30,7 +30,7 @@ public record Line(List<Point> points) {
     }
 
     public int move(int position) {
-        return get(position).move(position);
+        return get(position).move();
     }
 
     private Point get(int position) {

@@ -14,43 +14,43 @@ class PointTest {
     @ParameterizedTest(name = "왼쪽: {0}, 오른쪽: {1}")
     @CsvSource({"true, false", "false, true", "false, false"})
     void 생성자_정상입력_생성성공(boolean left, boolean right) {
-        assertThatCode(() -> new Point(left, right)).doesNotThrowAnyException();
+        assertThatCode(() -> new Point(0, left, right)).doesNotThrowAnyException();
     }
 
     @Test
     void 생성자_양쪽이동가능_예외발생() {
-        assertThatThrownBy(() -> new Point(true, true))
+        assertThatThrownBy(() -> new Point(0, true, true))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("양쪽으로 동시에 이동할 수 없습니다.");
     }
 
     @Test
     void move_왼쪽이동() {
-        Point point = new Point(true, false);
-        assertThat(point.move(1)).isEqualTo(0);
+        Point point = new Point(1, true, false);
+        assertThat(point.move()).isEqualTo(0);
     }
 
     @Test
     void move_오른쪽이동() {
-        Point point = new Point(false, true);
-        assertThat(point.move(1)).isEqualTo(2);
+        Point point = new Point(1, false, true);
+        assertThat(point.move()).isEqualTo(2);
     }
 
     @Test
     void move_이동없음() {
-        Point point = new Point(false, false);
-        assertThat(point.move(1)).isEqualTo(1);
+        Point point = new Point(1, false, false);
+        assertThat(point.move()).isEqualTo(1);
     }
 
     @Test
     void toSegment_연결됨() {
-        Point point = new Point(false, true);
+        Point point = new Point(0, false, true);
         assertThat(point.toSegment()).isEqualTo("-----|");
     }
 
     @Test
     void toSegment_연결안됨() {
-        Point point = new Point(false, false);
+        Point point = new Point(0, false, false);
         assertThat(point.toSegment()).isEqualTo("     |");
     }
 }

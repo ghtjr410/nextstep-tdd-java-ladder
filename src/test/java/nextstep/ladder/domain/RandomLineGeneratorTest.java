@@ -19,6 +19,6 @@ class RandomLineGeneratorTest {
         Line line = new RandomLineGenerator(generator).generate(2);
 
         assertThat(line.points())
-                .containsExactly(new Point(false, true), new Point(true, false), new Point(false, false));
+                .containsExactly(new Point(0, false, true), new Point(1, true, false), new Point(2, false, false));
     }
 }
