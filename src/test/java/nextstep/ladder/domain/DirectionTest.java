@@ -25,6 +25,34 @@ class DirectionTest {
     }
 
     @Test
+    void first_왼쪽은_항상_false() {
+        Direction direction = Direction.first(true);
+
+        assertThat(direction.left()).isFalse();
+        assertThat(direction.current()).isTrue();
+    }
+
+    @Test
+    void next_현재current가_다음left가됨() {
+        Direction current = Direction.first(true);
+
+        Direction next = current.next(false);
+
+        assertThat(next.left()).isTrue();
+        assertThat(next.current()).isFalse();
+    }
+
+    @Test
+    void last_오른쪽은_항상_false() {
+        Direction current = Direction.first(true);
+
+        Direction last = current.last();
+
+        assertThat(last.left()).isTrue(); // 이전 current
+        assertThat(last.current()).isFalse();
+    }
+
+    @Test
     void move_왼쪽() {
         Direction direction = new Direction(true, false);
         assertThat(direction.move()).isEqualTo(-1);
