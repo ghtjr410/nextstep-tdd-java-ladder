@@ -41,4 +41,16 @@ class DirectionTest {
         Direction direction = new Direction(false, false);
         assertThat(direction.move()).isEqualTo(0);
     }
+
+    @Test
+    void toSegment_연결됨() {
+        Direction direction = new Direction(false, true);
+        assertThat(direction.toSegment()).isEqualTo("-----|");
+    }
+
+    @Test
+    void toSegment_연결안됨() {
+        Direction direction = new Direction(false, false);
+        assertThat(direction.toSegment()).isEqualTo("     |");
+    }
 }

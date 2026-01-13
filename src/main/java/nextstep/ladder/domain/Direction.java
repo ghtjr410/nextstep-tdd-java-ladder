@@ -1,6 +1,8 @@
 package nextstep.ladder.domain;
 
 public record Direction(boolean left, boolean right) {
+    private static final String CONNECTED = "-----|";
+    private static final String EMPTY = "     |";
 
     public Direction {
         if (left && right) {
@@ -12,5 +14,9 @@ public record Direction(boolean left, boolean right) {
         if (left) return -1;
         if (right) return 1;
         return 0;
+    }
+
+    public String toSegment() {
+        return right ? CONNECTED : EMPTY;
     }
 }

@@ -19,7 +19,7 @@ public record Line(List<Point> points) {
     private static Point createPoint(Boolean[] connections, int index) {
         boolean left = index > 0 && connections[index - 1];
         boolean right = index < connections.length && connections[index];
-        return new Point(index, left, right);
+        return new Point(index, new Direction(left, right));
     }
 
     public Line {
