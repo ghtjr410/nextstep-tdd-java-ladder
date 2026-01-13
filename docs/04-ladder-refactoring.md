@@ -78,3 +78,23 @@ jk : 5000
 ### 6. 코드 일관성 정리
 - `this.` 사용 통일 (생략으로)
 - 테스트도 책임 이동에 맞춰 `LineTest` → `PointTest`로 이동
+
+### 7. MatchingResult 도입
+- 위치 매핑(`Map<Integer, Integer>`)과 이름/상품 매핑 분리
+- `LadderGame` 삭제, `Ladder.play()` → `MatchingResult` → `LadderResult` 흐름으로 변경
+
+### 8. Point에 index 추가
+- `Point(boolean left, boolean right)` → `Point(int index, Direction direction)`
+- `move(int position)` → `move()` 파라미터 제거
+- Point가 자기 위치를 알아서 계산
+
+### 9. Direction 분리
+- `Point`에서 방향 책임 분리
+- `Direction(boolean left, boolean current)` - 이동 방향 캡슐화
+- 규칙 7 준수 (인스턴스 변수 2개 이하)
+
+### 10. 체이닝 방식 Point 생성
+- `Direction.first()`, `next(generator)`, `last()` 메서드 추가
+- `Point.first()`, `next(generator)`, `last()` 메서드 추가
+- 연속 true 방지 로직을 `Direction.next(generator)` 내부로 이동
+- 외부 생성 → 객체가 다음 객체를 생성하는 방식으로 변경
