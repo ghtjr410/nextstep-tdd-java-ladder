@@ -3,7 +3,6 @@ package nextstep.ladder.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public record Line(List<Point> points) {
 
@@ -25,22 +24,6 @@ public record Line(List<Point> points) {
         points.add(point.last());
 
         return points;
-    }
-
-    public Line(Boolean... connections) {
-        this(toPoints(connections));
-    }
-
-    private static List<Point> toPoints(Boolean[] connections) {
-        return IntStream.rangeClosed(0, connections.length)
-                .mapToObj(i -> createPoint(connections, i))
-                .toList();
-    }
-
-    private static Point createPoint(Boolean[] connections, int index) {
-        boolean left = index > 0 && connections[index - 1];
-        boolean right = index < connections.length && connections[index];
-        return new Point(index, new Direction(left, right));
     }
 
     public Line {

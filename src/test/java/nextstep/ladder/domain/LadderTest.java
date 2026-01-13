@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
 class LadderTest {
     @Test
     void play_위치매핑_반환() {
-        Ladder ladder = new Ladder(new Names("a,b"), new Lines(new Line(true)));
+        Names names = new Names("a,b");
+        Lines lines = new Lines(new Line(2, () -> true));
+        Ladder ladder = new Ladder(names, lines);
 
         MatchingResult result = ladder.play();
 
@@ -20,11 +22,10 @@ class LadderTest {
 
     @Test
     void toDisplay() {
-        Names names = new Names("pobi,honux,jk");
-        Lines lines = new Lines(2, 3, count -> new Line(true, false));
+        Names names = new Names("pobi,honux");
+        Lines lines = new Lines(new Line(2, () -> true), new Line(2, () -> false));
         Ladder ladder = new Ladder(names, lines);
 
-        assertThat(ladder.toDisplay())
-                .isEqualTo("pobi  honux jk    \n" + "     |-----|     |\n" + "     |-----|     |");
+        assertThat(ladder.toDisplay()).isEqualTo("pobi  honux \n" + "     |-----|\n" + "     |     |");
     }
 }
