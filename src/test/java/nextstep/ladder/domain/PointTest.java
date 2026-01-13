@@ -10,6 +10,34 @@ import org.junit.jupiter.api.Test;
 class PointTest {
 
     @Test
+    void first_index는_0_left는_false() {
+        Point point = Point.first(true);
+
+        assertThat(point.index()).isEqualTo(0);
+        assertThat(point.direction()).isEqualTo(Direction.first(true));
+    }
+
+    @Test
+    void next_index증가_direction체이닝() {
+        Point current = Point.first(false);
+
+        Point next = current.next(true);
+
+        assertThat(next.index()).isEqualTo(1);
+        assertThat(next.direction()).isEqualTo(new Direction(false, true));
+    }
+
+    @Test
+    void last_index증가_current는_false() {
+        Point current = Point.first(true);
+
+        Point last = current.last();
+
+        assertThat(last.index()).isEqualTo(1);
+        assertThat(last.direction()).isEqualTo(new Direction(true, false));
+    }
+
+    @Test
     void move_왼쪽이동() {
         Point point = new Point(1, true, false);
         assertThat(point.move()).isEqualTo(0);
