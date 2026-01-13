@@ -17,9 +17,8 @@ class LinesTest {
 
     @Test
     void traverse_최종위치반환() {
-        Lines lines = new Lines(new Line(2, () -> true), new Line(2, () -> true));
-
-        assertThat(lines.traverse(0)).isEqualTo(0);
+        assertThat(new Lines(new Line(2, () -> true), new Line(2, () -> true)).traverse(0))
+                .isEqualTo(0);
     }
 
     @Test

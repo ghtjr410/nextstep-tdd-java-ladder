@@ -58,7 +58,7 @@ class DirectionTest {
 
         Direction last = current.last();
 
-        assertThat(last.left()).isTrue(); // 이전 current
+        assertThat(last.left()).isTrue();
         assertThat(last.current()).isFalse();
     }
 
