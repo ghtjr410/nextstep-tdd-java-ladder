@@ -14,6 +14,14 @@ public record Direction(boolean left, boolean current) {
         return new Direction(false, current);
     }
 
+    public Direction next(BooleanGenerator generator) {
+        if (this.current) {
+            return next(false);
+        }
+        return next(generator.generate());
+    }
+
+    // todo: 리팩터링 후에 private으로 변경 예정
     public Direction next(boolean nextCurrent) {
         return new Direction(this.current, nextCurrent);
     }

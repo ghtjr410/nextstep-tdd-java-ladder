@@ -33,13 +33,23 @@ class DirectionTest {
     }
 
     @Test
-    void next_현재current가_다음left가됨() {
+    void next_generator_현재가true면_다음은false() {
         Direction current = Direction.first(true);
 
-        Direction next = current.next(false);
+        Direction next = current.next(() -> true);
 
         assertThat(next.left()).isTrue();
         assertThat(next.current()).isFalse();
+    }
+
+    @Test
+    void next_generator_현재가false면_generator값사용() {
+        Direction current = Direction.first(false);
+
+        Direction next = current.next(() -> true);
+
+        assertThat(next.left()).isFalse();
+        assertThat(next.current()).isTrue();
     }
 
     @Test
