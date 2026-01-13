@@ -23,4 +23,22 @@ class DirectionTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("양쪽으로 동시에 이동할 수 없습니다.");
     }
+
+    @Test
+    void move_왼쪽() {
+        Direction direction = new Direction(true, false);
+        assertThat(direction.move()).isEqualTo(-1);
+    }
+
+    @Test
+    void move_오른쪽() {
+        Direction direction = new Direction(false, true);
+        assertThat(direction.move()).isEqualTo(1);
+    }
+
+    @Test
+    void move_이동없음() {
+        Direction direction = new Direction(false, false);
+        assertThat(direction.move()).isEqualTo(0);
+    }
 }
