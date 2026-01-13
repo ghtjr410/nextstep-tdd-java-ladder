@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -24,6 +25,14 @@ class LineTest {
         assertThatThrownBy(() -> new Line(inputs))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("가로선 정보는 필수입니다.");
+    }
+
+    @ParameterizedTest(name = "personCount:{0}, pointSize:{1}")
+    @CsvSource({"2, 2", "3, 3"})
+    void 생성자_points개수는_personCount와_같음(int personCount, int pointSize) {
+        Line line = new Line(personCount, () -> true);
+
+        assertThat(line.points()).hasSize(pointSize);
     }
 
     @Test

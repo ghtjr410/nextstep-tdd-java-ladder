@@ -1,10 +1,31 @@
 package nextstep.ladder.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public record Line(List<Point> points) {
+
+    public Line(int personCount, BooleanGenerator generator) {
+        this(createPoints(personCount, generator));
+    }
+
+    private static List<Point> createPoints(int personCount, BooleanGenerator generator) {
+        List<Point> points = new ArrayList<>();
+
+        Point point = Point.first(generator.generate());
+        points.add(point);
+
+        for (int i = 1; i < personCount - 1; i++) {
+            point = point.next(generator);
+            points.add(point);
+        }
+
+        points.add(point.last());
+
+        return points;
+    }
 
     public Line(Boolean... connections) {
         this(toPoints(connections));
