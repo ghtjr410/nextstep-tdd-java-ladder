@@ -21,8 +21,7 @@ public record Direction(boolean left, boolean current) {
         return next(generator.generate());
     }
 
-    // todo: 리팩터링 후에 private으로 변경 예정
-    public Direction next(boolean nextCurrent) {
+    private Direction next(boolean nextCurrent) {
         return new Direction(this.current, nextCurrent);
     }
 

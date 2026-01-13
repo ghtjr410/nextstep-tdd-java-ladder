@@ -18,16 +18,6 @@ class PointTest {
     }
 
     @Test
-    void next_index증가_direction체이닝() {
-        Point current = Point.first(false);
-
-        Point next = current.next(true);
-
-        assertThat(next.index()).isEqualTo(1);
-        assertThat(next.direction()).isEqualTo(new Direction(false, true));
-    }
-
-    @Test
     void next_generator_연속true_방지() {
         Point current = Point.first(true);
 
