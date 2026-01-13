@@ -15,15 +15,11 @@ public record Ladder(Names names, Lines lines) {
         return new MatchingResult(results);
     }
 
-    public int traverse(int position) {
+    private int traverse(int position) {
         return lines.traverse(position);
     }
 
-    public Name getName(int index) {
-        return names.get(index);
-    }
-
-    public int participantCount() {
+    private int participantCount() {
         return names.size();
     }
 
