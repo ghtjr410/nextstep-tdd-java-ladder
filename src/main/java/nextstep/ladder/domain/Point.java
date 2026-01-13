@@ -10,8 +10,13 @@ public record Point(int index, Direction direction) {
         return new Point(0, Direction.first(current));
     }
 
+    // todo: 리팩터링 후 삭제 예정
     public Point next(Boolean nextCurrent) {
         return new Point(index + 1, direction.next(nextCurrent));
+    }
+
+    public Point next(BooleanGenerator generator) {
+        return new Point(index + 1, direction.next(generator));
     }
 
     public Point last() {

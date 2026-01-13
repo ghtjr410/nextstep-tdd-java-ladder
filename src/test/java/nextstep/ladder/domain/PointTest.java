@@ -28,6 +28,26 @@ class PointTest {
     }
 
     @Test
+    void next_generator_연속true_방지() {
+        Point current = Point.first(true);
+
+        Point next = current.next(() -> true);
+
+        assertThat(next.index()).isEqualTo(1);
+        assertThat(next.direction()).isEqualTo(new Direction(true, false));
+    }
+
+    @Test
+    void next_generator_현재false면_generator값사용() {
+        Point current = Point.first(false);
+
+        Point next = current.next(() -> true);
+
+        assertThat(next.index()).isEqualTo(1);
+        assertThat(next.direction()).isEqualTo(new Direction(false, true));
+    }
+
+    @Test
     void last_index증가_current는_false() {
         Point current = Point.first(true);
 
