@@ -11,19 +11,19 @@ class LinesTest {
 
     @Test
     void 생성자_Height만큼_Line생성() {
-        assertThat(new Lines(3, 3, count -> new Line(true, false)).values()).hasSize(3);
+        assertThat(new Lines(3, 2, personCount -> new Line(2, () -> true)).values())
+                .hasSize(3);
     }
 
     @Test
     void traverse_최종위치반환() {
-        Lines lines = new Lines(new Line(true, false), new Line(false, true));
-
-        assertThat(lines.traverse(0)).isEqualTo(2);
+        assertThat(new Lines(new Line(2, () -> true), new Line(2, () -> true)).traverse(0))
+                .isEqualTo(0);
     }
 
     @Test
     void toDisplay() {
-        assertThat(new Lines(2, 3, count -> new Line(true, false)).toDisplay())
-                .isEqualTo("     |-----|     |\n     |-----|     |");
+        assertThat(new Lines(2, 2, count -> new Line(2, () -> true)).toDisplay())
+                .isEqualTo("     |-----|\n     |-----|");
     }
 }

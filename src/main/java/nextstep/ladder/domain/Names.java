@@ -11,10 +11,10 @@ public record Names(List<Name> values) {
         this(Arrays.stream(input.split(",")).map(Name::new).toList());
     }
 
-    public Names(List<Name> values) {
+    public Names {
         validate(values);
 
-        this.values = List.copyOf(values);
+        values = List.copyOf(values);
     }
 
     private void validate(List<Name> values) {

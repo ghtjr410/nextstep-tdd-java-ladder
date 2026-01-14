@@ -16,7 +16,7 @@ public record Lines(List<Line> values) {
 
     private static List<Line> generate(Height height, int personCount, LineGenerator generator) {
         return IntStream.range(0, height.value())
-                .mapToObj(i -> generator.generate(personCount - 1))
+                .mapToObj(i -> generator.generate(personCount))
                 .toList();
     }
 
